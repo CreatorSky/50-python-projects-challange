@@ -30,10 +30,14 @@ def convert(amount,frm,to):
     
 
 def main():
-    print("example: From : usd   To:inr")
+    print("example- From : usd   To : inr")
     amount = float(input("Enter Amount : "))
     frm = str(input("From : "))
     to = str(input("To : "))
+    if to == frm:
+        print("bish whaat ?")
+        frm = str(input("From : "))
+        to = str(input("To : "))
     convert(amount,frm,to)
     
 main()    
