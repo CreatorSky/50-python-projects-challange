@@ -15,8 +15,6 @@ from bs4 import BeautifulSoup
 def convert(amount,frm,to):
     url = "https://www.google.com/finance/converter?a="+str(amount)+"&from="+frm.upper()+"&to="+to.upper()
     print("Converting...")
-    #result = requests.get(url)
-    #soup = BeautifulSoup(requests.get(url).content, "lxml")
     ress = BeautifulSoup(requests.get(url).content, "lxml").find('span', {'class':'bld'})
     if ress is not None:
         print(amount, frm, " = " , ress.string.strip())
