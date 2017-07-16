@@ -155,6 +155,7 @@ def main():
     _ = hide(word)
     while True:
         if count == 0:
+            print("You'll have to guess the word. Length of the word is",len(word))
             printh(count,_)
         inp = str(input("Enter guess : ")).lower()
         if inp in word:
