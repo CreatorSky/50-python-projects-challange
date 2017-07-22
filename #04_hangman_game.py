@@ -148,18 +148,20 @@ def find(s, ch):
     
     
 def main(): 
+    first = 0
     count = 0
     miss = []
     mark = ""
     word = get_word()
     _ = hide(word)
     while True:
-        if count == 0:
-            print("You'll have to guess the word. Length of the word is",len(word))
+        if first == 0:
+            print("You'll have to guess the word by enterning single letters. Length of the word is",len(word))
             printh(count,_)
         inp = str(input("Enter guess : ")).lower()
         if inp in word:
             ind = find(word,inp)
+            first +=1
             for x in ind:
                 temp_list = _.split(' ')
                 temp_list[x] = inp
@@ -167,6 +169,7 @@ def main():
                 _ = ' '.join(temp_list)
         else:
             miss.append(inp)
+            first +=1
             count += 1
             
         printh(count,_,inp,miss)
@@ -180,31 +183,3 @@ def main():
     
 
 main()
-        
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
