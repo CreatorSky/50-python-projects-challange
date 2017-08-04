@@ -127,10 +127,6 @@ words = ['accidental', 'alcoholic', 'amuse', 'amusing', 'animal', 'appliance', '
          'zinc']
 
 
-def get_word():
-    n = random.randint(0,100)
-    return words[n]
-
 def hide(word):
     a = ''
     for _ in range(len(word)):
@@ -152,7 +148,7 @@ def main():
     count = 0
     miss = []
     mark = ""
-    word = get_word()
+    word = random.choice(words)
     _ = hide(word)
     while True:
         if first == 0:
