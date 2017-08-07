@@ -1,5 +1,12 @@
 # -*- coding: utf-8 -*-
+"""
+Created on Sun Aug  6 14:01:06 2017
 
+@author: creatorsky
+
+facebook.com/icreatorsky
+
+"""
 import requests,time,sys
 from bs4 import BeautifulSoup
 from clint.textui import progress
