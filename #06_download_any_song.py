@@ -1,5 +1,12 @@
 # -*- coding: utf-8 -*-
+"""
+Created on Sun Aug  6 14:01:06 2017
 
+@author: creatorsky
+
+facebook.com/icreatorsky
+
+"""
 import requests,time,sys
 from bs4 import BeautifulSoup
 from clint.textui import progress
@@ -16,19 +23,14 @@ def download(url):
             file_name = file_name.lower().replace(word,"")
         file_size = float(u.headers.get('Content-Length'))
         print ("Downloading: %s" % (file_name))
-        
-        
         with open(file_name, 'wb') as f:
             total_length = file_size
             for chunk in progress.bar(u.iter_content(chunk_size=1024), expected_size=(total_length/1024) + 1): 
                 if chunk:
                     f.write(chunk)
                     f.flush()
-                    
-        
     except:
         download(url)
-    
 
 def search(query):
     query = query.replace(" ","+")
@@ -38,11 +40,9 @@ def search(query):
     child = h3.findChildren()
     for c in child:
         x.append(c)
-
     watch_url = ''
     for link in x.findAll('a',{'rel':'spf-prefetch'}):
         watch_url = link.get('href')
-
     yt_url = "https://www.youtube.com"+watch_url
     return yt_url
 
@@ -51,7 +51,6 @@ def dlink(yt_url):
     downloadLink = requests.get(yt_in_mp3).text.split("Link: ",1)[1]
     print("Please wait..")
     return downloadLink
-
 
 if len(sys.argv) > 1:
     print(len(sys.argv))
@@ -67,8 +66,4 @@ download(downloadLink)
 
 stop = time.time()
 duration = stop - start
-print("Task took total",int(duration),"sec")    
-    
-    
-    
-    
+print("Task took total",int(duration),"sec")
