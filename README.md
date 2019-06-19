@@ -1,1 +1,1 @@
-self challenge of 50 mini python projects.
+self challenge of 8 mini python projects.
